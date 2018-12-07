@@ -3,39 +3,15 @@ import './SearchBar.css';
 
 class SearchBar extends Component {
 
-    state = {
-        searchTerm: ''
-    }
-
-    handleInputChange = (event) => {
-        const { name, value } = event.target;
-        this.setState({ [name]: value })
-    };
-
-    handleButtonClick = (query) => {
-        this.props.getNews(query);
-    }
-
-    handleFormSubmit = (event) => {
-        event.preventDefault();
-
-        if (this.state.searchTerm) {
-            // this.props.getNews(this.state.query);
-            console.log(`Searching for ${this.state.searchTerm}`);
-            this.setState({ searchTerm: '' });
-        }
-
-    };
-
 
     render() {
         return (
             <div className="wrap">
-                <form onSubmit={this.handleFormSubmit} className="search">
+                <form onSubmit={this.props.handleFormSubmit} className="search">
                     <input
-                        onChange={this.handleInputChange}
+                        onChange={this.props.handleInputChange}
                         name="searchTerm"
-                        value={this.state.searchTerm}
+                        value={this.props.searchTerm}
                         type="text" className="searchTerm"
                         placeholder="See the 5 day forecast in your city!"
                     />
