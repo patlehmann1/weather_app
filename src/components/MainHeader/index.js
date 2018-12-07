@@ -4,7 +4,7 @@ import './MainHeader.css';
 const MainHeader = () => {
     return (
         <div className="main_header">
-            <p>Pat Lehmann Custom Weather App</p>
+            <p>Weather for the next 24 hours, every 3 hours.</p>
         </div>
     )
 }

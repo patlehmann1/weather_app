@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MainHeader from './components/MainHeader';
 import SearchBar from './components/SearchBar';
 import RecentSearches from './components/RecentSearches';
+import SearchResults from './components/SearchResults';
 
 import './App.css';
 
@@ -10,25 +11,30 @@ class App extends Component {
   state = {
     searchTerm: '',
     recentSearches: [],
-    hits: null
-  }
+    weatherData: []
+  };
 
   handleInputChange = (event) => {
     const { name, value } = event.target;
     this.setState({ [name]: value })
   };
 
+  getWeather = query => {
+    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${query},us&type=like&cnt=8&units=imperial&mode=json&appid=c58ce45c0689fc1e28068d46e4bddfb8`)
+      .then(response => response.json())
+      .then(result => this.setState({ weatherData: result.list }))
+  };
+
   handleButtonClick = query => {
-    this.props.getNews(query);
-  }
+    console.log(`You clicked ${query}!`)
+    this.getWeather(query);
+  };
 
   handleFormSubmit = (event) => {
     event.preventDefault();
 
     if (this.state.searchTerm) {
-      // this.props.getNews(this.state.searchTerm);
-      console.log(`Searching for ${this.state.searchTerm}`);
-
+      this.getWeather(this.state.searchTerm);
       this.setState({
         recentSearches: [...this.state.recentSearches, this.state.searchTerm],
         searchTerm: ''
@@ -49,10 +55,14 @@ class App extends Component {
         />
         <RecentSearches
           recentSearches={this.state.recentSearches}
+          handleButtonClick={this.handleButtonClick}
+        />
+        <SearchResults
+          weatherData={this.state.weatherData}
         />
       </div>
     );
-  }
-}
+  };
+};
 
 export default App;
