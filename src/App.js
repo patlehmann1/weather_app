@@ -14,7 +14,7 @@ class App extends Component {
     weatherData: []
   };
 
-  handleInputChange = (event) => {
+  handleInputChange = event => {
     const { name, value } = event.target;
     this.setState({ [name]: value })
   };
@@ -22,7 +22,13 @@ class App extends Component {
   getWeather = query => {
     fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${query},us&type=like&cnt=8&units=imperial&mode=json&appid=c58ce45c0689fc1e28068d46e4bddfb8`)
       .then(response => response.json())
-      .then(result => this.setState({ weatherData: result.list }))
+      .then(result => {
+        if (result.cod === "404") {
+          return "City not found, please try again.";
+        } else {
+          this.setState({ weatherData: result.list });
+        };
+      })
   };
 
   handleButtonClick = query => {
@@ -30,7 +36,7 @@ class App extends Component {
     this.getWeather(query);
   };
 
-  handleFormSubmit = (event) => {
+  handleFormSubmit = event => {
     event.preventDefault();
 
     if (this.state.searchTerm) {

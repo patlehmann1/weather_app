@@ -9,9 +9,12 @@
 }
 
 .rsb {
+    min-height: 30px;
+    min-width: 40px;
     margin: 2px;
     background-color: #000f36;
     border-color: #36405b;
     border-radius: 3px;
     color: white;
+    font-size: 20px;
 }

@@ -13,7 +13,7 @@ class SearchBar extends Component {
                         name="searchTerm"
                         value={this.props.searchTerm}
                         type="text" className="searchTerm"
-                        placeholder="See the 5 day forecast in your city!"
+                        placeholder="Search by City"
                     />
                     <button type="submit" className="searchButton">
                         <i className="fa fa-search"></i>

@@ -1,0 +1,14 @@
+.wrap {
+    display: block;
+}
+
+.searchTerm {
+    border: 1.75px solid #000f36;
+}
+
+.searchButton {
+    height: 20px;
+    width: 25px;
+    background-color: #000f36;
+    border-color: #000f36;
+}
