@@ -1,4 +1,5 @@
-.wrap {
+.searchWrap {
+    font-family: 'Open Sans', sans-serif;
     display: block;
 }
 
@@ -7,6 +8,7 @@
 }
 
 .searchButton {
+    font-family: 'Open Sans', sans-serif;
     height: 20px;
     width: 25px;
     background-color: #000f36;

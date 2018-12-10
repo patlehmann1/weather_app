@@ -1,5 +1,6 @@
 .recentSearches {
     color: #000f36;
+    font-family: 'Open Sans', sans-serif;
 }
 
 .searchButtons {
@@ -9,6 +10,7 @@
 }
 
 .rsb {
+    font-family: 'Open Sans', sans-serif;
     min-height: 30px;
     min-width: 40px;
     margin: 2px;

@@ -6,7 +6,7 @@ class SearchBar extends Component {
 
     render() {
         return (
-            <div className="wrap">
+            <div className="searchWrap">
                 <form onSubmit={this.props.handleFormSubmit} className="search">
                     <input
                         onChange={this.props.handleInputChange}
