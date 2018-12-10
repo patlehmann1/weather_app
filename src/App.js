@@ -20,7 +20,7 @@ class App extends Component {
   };
 
   getWeather = query => {
-    fetch(`http://api.openweathermap.org/data/2.5/forecast?q=${query},us&type=like&cnt=8&units=imperial&mode=json&appid=c58ce45c0689fc1e28068d46e4bddfb8`)
+    fetch(`https://api.openweathermap.org/data/2.5/forecast?q=${query},us&type=like&cnt=8&units=imperial&mode=json&appid=c58ce45c0689fc1e28068d46e4bddfb8`)
       .then(response => response.json())
       .then(result => {
         if (result.cod === "404") {
