@@ -5,6 +5,7 @@
 
 .searchTerm {
     border: 1.75px solid #000f36;
+    min-width: 50vw;
 }
 
 .searchButton {
